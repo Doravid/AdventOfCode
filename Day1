@@ -1,0 +1,22 @@
+    public static void main(String[] args) throws Exception {
+
+        int calories[] = new int[247];
+        int a = 0;
+        String s = new String();
+        File file = new File("Input.txt");
+        Scanner scanCalories = new Scanner(file);
+
+        while (scanCalories.hasNextLine()){
+            s = scanCalories.nextLine();
+
+            if(s != "") calories[a] += Integer.parseInt(s);
+            else a++;
+
+        }
+        Arrays.sort(calories);
+        System.out.println(calories[a]);
+        System.out.println(calories[a] + calories[a-1] + calories[a-2]);
+    }
+}
+
+//I changed the input for the sake of privacy on Github. 
