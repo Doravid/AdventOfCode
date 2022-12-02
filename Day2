@@ -16,7 +16,7 @@ public class Day2 {
 
     String[] inputRPS = new String[1];
 
-    File file = new File("C:\\Users\\ffeep\\IdeaProjects\\Advent1\\Inputs\\Input_2.txt");
+    File file = new File("Input_2.txt");
     Scanner scanRPS = new Scanner(file);
 
     while (scanRPS.hasNextLine()){
