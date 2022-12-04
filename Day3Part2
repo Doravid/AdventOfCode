@@ -1,0 +1,216 @@
+package com.company.Days;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Day3_2 {
+
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+    String[] input = new String[300];
+    String[] letterInCommon =  new String[100];
+    int lineNum = 0;
+    int totalScore = 0;
+    int  letterNumber = 0;
+
+
+
+    File file = new File(".\\Inputs\\Input_3.txt");
+    Scanner scanRPS = new Scanner(file);
+
+    while (scanRPS.hasNextLine()){
+        input[lineNum]  = scanRPS.nextLine();
+        lineNum++;
+    }
+    //Checks groups of three for common letters
+    for (int i = 0; i < input.length; i+=3){
+        for  (int a = 0; a < input[i+1].length(); a++){
+            for  (int b = 0; b < input[i+2].length(); b++){
+                if ( (input[i].contains(input[i + 1].substring(a, a+1))  && input[i].contains(input[i + 2].substring(b, b+1))) && (input[i+1].substring(a, a+1).equals(input[i+2].substring(b, b+1))) ){
+
+                    //Adds the letter in common between the three to an array
+                    letterInCommon[letterNumber] = input[i+1].substring(a, a+1);
+                    letterNumber++;
+
+                    //Makes it so it doesn't double or triple count
+                    a = input[i+1].length();
+                    b = input[i+2].length();
+                }
+            }
+        }
+    }
+
+
+    //Assigns the value of the letter to a number which is added to the score. 
+       for  (String num : letterInCommon){
+        if(num  != null)
+           switch(num) {
+            case "a":
+                totalScore++;
+                break;
+            case "b":
+                totalScore+=2;
+                break;
+            case "c":
+                totalScore+=3;
+                break;
+            case "d":
+                totalScore+=4;
+                break;
+            case "e":
+                totalScore+=5;
+                break;
+            case "f":
+                totalScore+=6
+                ;
+                break;
+            case "g":
+                totalScore+=7;
+                break;
+            case "h":
+                totalScore+=8;
+                break;
+            case "i":
+                totalScore+=9;
+                break;
+            case "j":
+                totalScore+=10;
+                break;
+            case "k":
+                totalScore+=11;
+                break;
+            case "l":
+                totalScore+=12;
+                break;
+            case "m":
+                totalScore+=13;
+                break;
+            case "n":
+                totalScore+=14;
+                break;
+            case "o":
+                totalScore+=15;
+                break;
+            case "p":
+                totalScore+=16;
+                break;
+            case "q":
+                totalScore+=17;
+                break;
+            case "r":
+                totalScore+=18;
+                break;
+            case "s":
+                totalScore+=19;
+                break;
+            case "t":
+                totalScore+=20;
+                break;
+            case "u":
+                totalScore+=21;
+                break;
+            case "v":
+                totalScore+=22;
+                break;
+            case "w":
+                totalScore+=23;
+                break;
+            case "x":
+                totalScore+=24;
+                break;
+            case "y":
+                totalScore+=25;
+                break;
+            case "z":
+                totalScore+=26;
+                break;
+            case "A":
+                totalScore+=27;
+                break;
+            case "B":
+                totalScore+=28;
+                break;
+            case "C":
+                totalScore+=29;
+                break;
+            case "D":
+                totalScore+=30;
+                break;
+            case "E":
+                totalScore+=31;
+                break;
+            case "F":
+                totalScore+=32;
+                break;
+            case "G":
+                totalScore+=33;
+                break;
+            case "H":
+                totalScore+=34;
+                break;
+            case "I":
+                totalScore+=35;
+                break;
+            case "J":
+                totalScore+=36;
+                break;
+            case "K":
+                totalScore+=37;
+                break;
+            case "L":
+                totalScore+=38;
+                break;
+            case "M":
+                totalScore+=39;
+                break;
+            case "N":
+                totalScore+=40;
+                break;
+            case "O":
+                totalScore+=41;
+                break;
+            case "P":
+                totalScore+=42;
+                break;
+            case "Q":
+                totalScore+=43;
+                break;
+            case "R":
+                totalScore+=44;
+                break;
+            case "S":
+                totalScore+=45;
+                break;
+            case "T":
+                totalScore+=46;
+                break;
+            case "U":
+                totalScore+=47;
+                break;
+            case "V":
+                totalScore+=48;
+                break;
+            case "W":
+                totalScore+=49;
+                break;
+            case "X":
+                totalScore+=50;
+                break;
+            case "Y":
+                totalScore+=51;
+                break;
+            case "Z":
+                totalScore+=52;
+                break;
+            default:
+                break;
+        }
+       }
+
+
+    System.out.println("The total score is: " + totalScore);
+    }
+}
