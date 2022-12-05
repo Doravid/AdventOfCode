@@ -1,0 +1,42 @@
+package com.company.Days;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Day4 {
+
+    public static void main(String[] args) throws FileNotFoundException {
+
+        //Creates variables to be used later
+        int totalCount = 0;
+        String line;
+
+        //Takes in the Input file used for the challenge
+        File file = new File(".\\Inputs\\Input_4.txt");
+        Scanner scanRPS = new Scanner(file);
+
+        while (scanRPS.hasNextLine()) {
+            line = scanRPS.nextLine();
+
+            //Splits the string into the two inputs
+            String[] wholeSplit = line.split(",");
+
+            //Splits the two inputs into their lower and upper bounds.
+            String[] splitOne = wholeSplit[0].split("-");
+            String[] splitTwo = wholeSplit[1].split("-");
+
+            //Checks if they overlap and adds one to the count.
+            if (!((Integer.parseInt(splitOne[0]) > (Integer.parseInt(splitTwo[1]))) || (Integer.parseInt(splitOne[1])) < (Integer.parseInt(splitTwo[0])))) {
+                totalCount++;
+            }
+        }
+        //Prints the result
+        System.out.println("The total score is: " + totalCount);
+    }
+}
+
+    //Used in part one
+//        if ( ( (Integer.parseInt(splitOne[0]) <= Integer.parseInt(splitTwo[0])) && (Integer.parseInt(splitOne[1]) >= Integer.parseInt(splitTwo[1]))) || ((Integer.parseInt(splitTwo[0]) <= Integer.parseInt(splitOne[0])) && (Integer.parseInt(splitTwo[1]) >= Integer.parseInt(splitOne[1]))) ){
+//            totalScore++;
+//        }
